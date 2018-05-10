@@ -16,31 +16,10 @@ function cariModus(arr) {
         count[index] = count[index] + 1
       }
     }
-    // for (var j = 0; j < count.length; j++) {
-    //   // count[i]
-    //   console.log(count[j]) // DISPLAY 1, 1, 2, 1
-    //   if (count[0] < count[]) {
-    //     sortCount.push(count[j])
-    //   } else {
-    //     sortCount.push(count[j])
-    //   }
-    console.log(angkaUnik)
-    console.log(count)// out : [1,1,2,1]
+    console.log('ini array yang belom di apaapain ', arr)
+    console.log('ini angkaUnik yang sudah di hilangkan angka yang samanya', angkaUnik)
+    console.log('ini count index dari angkaUnik ', count)// out : [1,1,2,1]
     //sortir manual with statement and looping
-    // var temp; // var temporary contain
-    // for(var j = 0; j < count.length; j++) {
-    //   var min = j;
-  
-    //   for(var k = j + 1; k < count.length; k++) {
-    //     if(count[k] > count[min]) {
-    //       min = k;
-    //     }
-    //   }
-    //   temp = count[j];
-    //   count[j] = count[min];
-    //   count[min] = temp;
-    // }
-    // sortir manual data count and angkaUnik with looping and statement 
     for (var a = 0; a < count.length; a ++) {
       for(var b = a+1; b < count.length; b++) {
         if(count[b] > count [a]) {
@@ -50,7 +29,7 @@ function cariModus(arr) {
           count[a] = count[b];
           console.log('after', count)
           count[b] = tampung
-          console.log('final', count)
+          console.log('count index yang sudah di sortir', count)
   
           //var tampung2(temporary) to contain value angkaUnik
           var tampung2 = angkaUnik[a]
@@ -80,7 +59,7 @@ function cariModus(arr) {
   
   // TEST CASES
   console.log(cariModus([10, 4, 5, 2, 5])); // 5
-  console.log(cariModus([5, 10, 10, 6, 5])); // 5
-  console.log(cariModus([10, 3, 1, 2, 5])); // -1
-  console.log(cariModus([1, 2, 3, 3, 4, 5])); // 3
-  console.log(cariModus([7, 7, 7, 7, 7])); // -1
+  // console.log(cariModus([5, 10, 10, 6, 5])); // 5
+  // console.log(cariModus([10, 3, 1, 2, 5])); // -1
+  // console.log(cariModus([1, 2, 3, 3, 4, 5])); // 3
+  // console.log(cariModus([7, 7, 7, 7, 7])); // -1
