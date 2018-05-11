@@ -23,7 +23,8 @@ function digitPerkalianMinimum(angka) {
       for(var c = b+1; c < arrAngka.length; c++) {
         arrAngka[c]
         // console.log('ini angka c:', arrAngka[c])
-        // conditional if arrAngka * arrAngka selanjutnya == value of parameter(angka)
+        // co
+        nditional if arrAngka * arrAngka selanjutnya == value of parameter(angka)
         if(arrAngka[b] * arrAngka[c] == angka) {
           var strAng = String(arrAngka[b])
           var strAng2 = String(arrAngka[c])

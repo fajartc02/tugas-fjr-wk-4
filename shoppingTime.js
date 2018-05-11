@@ -1,5 +1,5 @@
 function shoppingTime(memberId, money) {
-    // you can only write your code here!
+// you can only write your code here!
     var check;
     var customer = {
         memberId: memberId,
