@@ -1,72 +1,83 @@
-function shoppingTime(memberId, money) {
-    // you can only write your code here!
-    var check;
-    var customer = {
-        memberId: memberId,
-        money: money,
-        listPurchased: []
-    }
-    // console.log(customer)
-    if(customer.memberId === '' || customer.memberId === undefined) {
-        return check = 'Mohon maaf, toko X hanya berlaku untuk member saja'
-    } else if (customer.money < 50000) {
-        return check = 'Mohon maaf, uang tidak cukup'
-    } else if (customer.money >= 50000) {
-        var changeMoney = customer.money
-        var listBarang = ['Sepatu Stacatu', 'Baju Zoro', 'Baju H&N', 'Sweater Uniklooh', 'Casing Handphone']
-        // for (var cm = changeMoney; cm > 0; cm--) {
-        if (customer.money >= 1500000) { 
-            changeMoney = changeMoney - 1500000
-            customer.listPurchased.push(listBarang[0])
-            // console.log(customer.listPurchased)
-            // console.log(changeMoney)// out : 975000
-        }
-        if (changeMoney >= 500000) {
-            changeMoney = changeMoney - 500000
-            customer.listPurchased.push(listBarang[1])
-            // console.log(changeMoney)
-            // console.log(customer.listPurchased)
-        }
-        if (changeMoney >= 250000) {
-            changeMoney = changeMoney - 250000
-            customer.listPurchased.push(listBarang[2])
-            // console.log(changeMoney)
-            // console.log(customer.listPurchased)
-        }
-        if (changeMoney >= 175000) {
-            changeMoney = changeMoney - 175000
-            customer.listPurchased.push(listBarang[3])
-        }
-        if (changeMoney >= 50000) {
-            changeMoney = changeMoney - 50000
-            customer.listPurchased.push(listBarang[4])
-            // console.log(changeMoney)
-            // console.log(customer.listPurchased)
-        }
-        // }
-        customer.changeMoney = changeMoney
-        return customer
-    }
-    // console.log(check)
+function countProfit(shoppers) {
+  let listBarang = [ ['Sepatu Stacattu', 1500000, 10],
+                     ['Baju Zoro', 500000, 2],
+                     ['Sweater Uniklooh', 175000, 1]
+                   ];
+
+  // you can only write your code here!
+  if (shoppers == 0) {
+      return arrTokoX = []
   }
-  
-  // TEST CASES
-  console.log(shoppingTime('1820RzKrnWn08', 2475000));
-    //{ memberId: '1820RzKrnWn08',
-    // money: 2475000,
-    // listPurchased:
-    //  [ 'Sepatu Stacattu', (1500000)
-    //    'Baju Zoro', (500000)
-    //    'Baju H&N', (250000)
-    //    'Sweater Uniklooh', (175000)
-    //    'Casing Handphone' (50000)],
-    // changeMoney: 0 }
-  console.log(shoppingTime('82Ku8Ma742', 170000));
-//   //{ memberId: '82Ku8Ma742',
-//   // money: 170000,
-//   // listPurchased:
-//   //  [ 'Casing Handphone' ],
-//   // changeMoney: 120000 }
-  console.log(shoppingTime('', 2475000)); //Mohon maaf, toko X hanya berlaku untuk member saja
-  console.log(shoppingTime('234JdhweRxa53', 15000)); //Mohon maaf, uang tidak cukup
-  console.log(shoppingTime()); ////Mohon maaf, toko X hanya berlaku untuk member saja
+
+  var arrTokoX = []
+  for (var i = 0; i < listBarang.length; i++) {
+    var tokoX = {}
+    tokoX.product = listBarang[i][0]
+    tokoX.shoppers = []
+    tokoX.leftOver = listBarang[i][2]
+    tokoX.totalProfit = 0
+    arrTokoX.push(tokoX)
+    var laku = 0
+    for (var j = 0; j < shoppers.length; j++) {
+      var amount = 0
+      if(arrTokoX[i].product === shoppers[j].product) {
+        amount += shoppers[j].amount
+        console.log('ini amount', amount)
+        if(arrTokoX[i].leftOver - amount >= 0) {
+          arrTokoX[i].leftOver -= amount
+          laku += shoppers[j].amount
+          console.log('ini laku' + laku)
+          var sold = arrTokoX[i].leftOver
+          console.log(sold)
+        arrTokoX[i].shoppers.push(shoppers[j].name)
+        arrTokoX[i].totalProfit = listBarang[i][1] * laku
+        }
+      }
+    }
+  }
+  return arrTokoX
+
+}
+
+// TEST CASES
+console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 3}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 2}]));
+//[ { product: 'Sepatu Stacattu',
+//   shoppers: [ 'Windi', 'Vanessa' ],
+//   leftOver: 5,
+//   totalProfit: 7500000 },
+// { product: 'Baju Zoro',
+//   shoppers: [],
+//   leftOver: 2,
+//   totalProfit: 0 },
+// { product: 'Sweater Uniklooh',
+//   shoppers: [],
+//   leftOver: 1,
+//   totalProfit: 0 } ]
+
+  console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 8}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 10}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 1}, {name: 'Devi', product: 'Baju Zoro', amount: 1}, {name: 'Lisa', product: 'Baju Zoro', amount: 1}]));
+// [ { product: 'Sepatu Stacattu',
+//     shoppers: [ 'Windi' ],
+//     leftOver: 2,
+//     totalProfit: 12000000 },
+//   { product: 'Baju Zoro',
+//     shoppers: [ 'Devi', 'Lisa' ],
+//     leftOver: 0,
+//     totalProfit: 1000000 },
+//   { product: 'Sweater Uniklooh',
+//     shoppers: [ 'Rani' ],
+//     leftOver: 0,
+//     totalProfit: 175000 } ]
+  console.log(countProfit([{name: 'Windi', product: 'Sepatu Naiki', amount: 5}]));
+// [ { product: 'Sepatu Stacattu',
+//     shoppers: [],
+//     leftOver: 10,
+//     totalProfit: 0 },
+//   { product: 'Baju Zoro',
+//     shoppers: [],
+//     leftOver: 2,
+//     totalProfit: 0 },
+//   { product: 'Sweater Uniklooh',
+//     shoppers: [],
+//     leftOver: 1,
+//     totalProfit: 0 } ]
+  console.log(countProfit([])); //[]
