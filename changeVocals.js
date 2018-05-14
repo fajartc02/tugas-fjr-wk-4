@@ -24,7 +24,7 @@ function changeVocals (str) {
   }
   return newStr
 }
-console.log(changeVocals('Sargei Dragunov'))
+console.log(changeVocals('Sergei Dragunov'))
 
 function reverseWord (str) {
   //code di sini

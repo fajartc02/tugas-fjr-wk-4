@@ -21,7 +21,7 @@ function countProfit(shoppers) {
       for (var j = 0; j < shoppers.length; j++) {
         var amount = 0
         if(arrTokoX[i].product === shoppers[j].product) {
-          amount += shoppers[j].amount
+          amount += shoppers[j].amount //count amount from shoppers if product same
           console.log('ini amount', amount)
           if(arrTokoX[i].leftOver - amount >= 0) {
             arrTokoX[i].leftOver -= amount
