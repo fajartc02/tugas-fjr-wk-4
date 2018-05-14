@@ -39,7 +39,7 @@ function digitPerkalianMinimum(angka) {
         }
       }
     }
-    // return digitMinimum
+    return digitMinimum
   }
 
 // TEST CASES
