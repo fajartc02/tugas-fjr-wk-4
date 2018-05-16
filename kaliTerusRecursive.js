@@ -26,11 +26,11 @@ function kaliTerusRekursif(angka) {
         hasil *= containNum[a]
     }
     // console.log(hasil)
-    return hasil, kaliTerusRekursif(hasil)
+    return kaliTerusRekursif(hasil)
   }
 }
 
-// TEST CASES
+// TEST CASE
 console.log(kaliTerusRekursif(66)); // 8
 console.log(kaliTerusRekursif(3)); // 3
 console.log(kaliTerusRekursif(24)); // 8
