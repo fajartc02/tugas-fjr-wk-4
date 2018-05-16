@@ -1,48 +1,72 @@
-function changeVocals (str) {
-  //code di sini
-  var aZ = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ '
-  var voc = ['a', 'i', 'u', 'e', 'o', 'A', 'I', 'U', 'E', 'O']
-  var newStr = []
-  console.log(voc.length)
-  for(var i = 0; i < str.length; i++) {
-    var strNew = ''
-    for(var j = 0; j < voc.length; j++) {
-      // console.log('ini j ', voc[j])
-      // console.log('ini i ', i)
-      if (str[i] != voc[j]) {
-        strNew += str[i]
-        newStr.push(strNew)
-        console.log(strNew)
-        break;
-      } else if (str[i] == voc[j]) {
-        var changeStr = aZ.indexOf(str[i])
-        strNew += aZ[changeStr + 1]
-        newStr.push(strNew)
-        break;
-      }
-    }
+function highestScore (students) {
+  // Code disini
+  var scoreClass = {}
+  console.log(students[0])
+}
+
+// TEST CASE
+console.log(highestScore([
+  {
+    name: 'Dimitri',
+    score: 90,
+    class: 'foxes'
+  },
+  {
+    name: 'Alexei',
+    score: 85,
+    class: 'wolves'
+  },
+  {
+    name: 'Sergei',
+    score: 74,
+    class: 'foxes'
+  },
+  {
+    name: 'Anastasia',
+    score: 78,
+    class: 'wolves'
   }
-  return newStr
-}
-console.log(changeVocals('Sargei Dragunov'))
+]));
 
-function reverseWord (str) {
-  //code di sini
-}
+// {
+//   foxes: { name: 'Dimitri', score: 90 },
+//   wolves: { name: 'Alexei', score: 85 }
+// }
 
-function setLowerUpperCase (str) {
-  //code di sini
-}
 
-function removeSpaces (str) {
-  //code di sini
-}
+// console.log(highestScore([
+//   {
+//     name: 'Alexander',
+//     score: 100,
+//     class: 'foxes'
+//   },
+//   {
+//     name: 'Alisa',
+//     score: 76,
+//     class: 'wolves'
+//   },
+//   {
+//     name: 'Vladimir',
+//     score: 92,
+//     class: 'foxes'
+//   },
+//   {
+//     name: 'Albert',
+//     score: 71,
+//     class: 'wolves'
+//   },
+//   {
+//     name: 'Viktor',
+//     score: 80,
+//     class: 'tigers'
+//   }
+// ]));
 
-function passwordGenerator (name) {
-  //code di sini
-}
+// // {
+// //   foxes: { name: 'Alexander', score: 100 },
+// //   wolves: { name: 'Alisa', score: 76 },
+// //   tigers: { name: 'Viktor', score: 80 }
+// // }
 
-console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'
-// console.log(passwordGenerator('Dimitri Wahyudiputra')); // 'BRTVPJDVYHBwJRTJMJd'
-// console.log(passwordGenerator('Alexei')); // 'JFXFLb'
-// console.log(passwordGenerator('Alex')); // 'Minimal karakter yang diinputkan adalah 5 karakter'
+
+// console.log(highestScore([])); //{}

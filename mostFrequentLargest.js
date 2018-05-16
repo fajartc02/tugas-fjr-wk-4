@@ -28,7 +28,7 @@ function sorting(arrNumber) {
         }
     }
     if (arrNumber == 0) {
-        return []
+        return ''
     }
     return 'angka paling besar adalah ' + arrNumber[0] + ' dan jumlah kemunculannya sebanyak ' + conIndex[0] + ' kali'
   }

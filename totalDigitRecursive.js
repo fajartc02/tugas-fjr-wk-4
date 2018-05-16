@@ -4,9 +4,9 @@ function totalDigitRekursif(angka) {
     return 0
   } else {   
     return (angka % 10) + totalDigitRekursif(Math.floor/*untuk membulatkan angka kebawah*/(angka/10)) // out : 2 + 1 + 5 = 8
-    // 2 + totalDigitRecursive(512/10 = 51.2) 51<== Math.trunc
-    // 2 + (51 % 10) = 1 + totalDigitRecursive(51 / 10 = 5.1) 5 <== Math.trunc
-    // 2 + 1 + 5 + totalDigitRecursive(5 / 10 = 0.5) 0<== Math.trunc
+    // 2 + totalDigitRecursive(512/10 = 51.2) 51<== Math.floor
+    // 2 + (51 % 10) = 1 + totalDigitRecursive(51 / 10 = 5.1) 5 <== Math.floor
+    // 2 + 1 + 5 + totalDigitRecursive(5 / 10 = 0.5) 0<== Math.tfloor
   }
 }
 
